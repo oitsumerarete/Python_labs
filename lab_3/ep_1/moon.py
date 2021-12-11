@@ -10,12 +10,8 @@ for i in range(1, 4):
     max_st = np.max(data)
     k = 255 / (max_st - min_st)
     b = 255 - max_st * k
-    x, y = data.shape
-    updated_data = np.zeros((x, y))
 
-    for j in range(x):
-        for m in range(y):
-            updated_data[j][m] = data[j][m] * k + b
+    updated_data = data * k + b
 
     # запись картинки после обработки
     res_img = Image.fromarray(updated_data)
